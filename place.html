@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Daniel Ndubuisi">
+    <meta name="description" content="WDD 131 - Country and place page">
+    <title>Country of interest exercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/place.css">
+    <link rel="stylesheet" href="styles/place-large.css">
+    <script src="scripts/place.js" defer></script>
+    <script src="scripts/getdates.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 class="heading">Kenya</h1>
+    </header>
+    <main class="container">
+        <div class="hero">
+            <picture>
+                <source media="(min-width: 1000px )" srcset="images/kenya-large.webp">
+                <source media="(min-width: 500px )" srcset="images/kenya-medium.webp">
+                <img src="images/kenya-small.webp" alt="hero-image">
+            </picture>
+        </div>
+        <div class="content">
+            <section class="data">
+                <h2>Data</h2>
+                <ul>
+                    <li><span>Area: </span>580,367 sq km</li>
+                    <li><span>Population: </span>52,428,290</li>
+                    <li><span>Capital: </span>Nairobi</li>
+                    <li><span>Languages: </span>Swahili, English</li>
+                    <li><span>Currency: </span>Kenyan shilling</li>
+                    <li><span>Time Zone: </span>UTC+3</li>
+                    <li><span>Calling Code: </span>+254</li>
+                    <li><span>Internet TLD: </span>.ke</li>
+                </ul>
+            </section>
+            <section class="weather">
+                <h2>Weather</h2>
+                <div class="icon">
+                    <img src="images/weather-icon.svg" alt="weather-icon">
+                </div>
+                <ul>
+                    <li><span>Temperature: </span>25°C</li>
+                    <li><span>Conditions: </span>Mostly sunny</li>
+                    <li><span>Wind: </span>16km/h</li>
+                    <li><span>Wind Chill: </span><span id="wind-chill"></span></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Daniel Tochukwu Ndubuisi | Nigeria</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
