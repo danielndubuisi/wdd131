@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week04 Lazy Loading Page</title>
+    <meta name="description" content="Week04 Lazy Loading Page">
+    <meta name="author" content="Daniel Ndubuisi">
+    <link rel="stylesheet" href="styles/lazyload.css">
+    <script src="scripts/lazyload.js" defer></script>
+    <script src="../scripts/getdates.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Lazy Loading</h1>
+        <p>Scroll down to see the images loading lazily</p>
+    </header>
+    <main>
+        <div class="image-container">
+            <img src="images/img1.webp" alt="Image 1" loading="lazy">
+            <img src="images/img2.webp" alt="Image 2" loading="lazy">
+            <img src="images/img3.webp" alt="Image 3" loading="lazy">
+            <img src="images/img4.webp" alt="Image 4" loading="lazy">
+            <img src="images/img5.webp" alt="Image 5" loading="lazy">
+            <img src="images/img6.webp" alt="Image 6" loading="lazy">
+        </div>
+    </main>
+    <footer>
+        <p>&copy;<span id="currentyear"></span> | Daniel Tochukwu Ndubuisi | Nigeria</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>
