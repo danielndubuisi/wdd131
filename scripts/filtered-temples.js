@@ -1,30 +1,4 @@
-const header = document.querySelector("#selectedMenu");
-const links = document.querySelectorAll("a");
-const nav = document.querySelector("nav");
-const ul = document.querySelector('ul');
-const menuBtn = document.querySelector("#menu");
-
-menuBtn.addEventListener('click', () => {
-    nav.classList.toggle('show');
-    ul.classList.toggle('show');
-    menuBtn.classList.toggle('show');
-});
-
-[...links].map((link) => {
-    // set header default value
-    header.textContent = "Home";
-    // add an event listener to update header value
-    link.addEventListener('click', () => {
-        header.textContent = link.title
-        // close menu on small screens once link selected
-        if (window.innerWidth < 659) {
-            nav.classList.toggle("show");
-            ul.classList.toggle("show");
-            menuBtn.classList.toggle("show");     
-        }
-    })
-});
-
+// temples array
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -108,3 +82,76 @@ const temples = [
         "https://churchofjesuschristtemples.org/assets/img/temples/okinawa-japan-temple/okinawa-japan-temple-40845-main.jpg",
     },
 ];
+
+const header = document.querySelector("#selectedMenu");
+const links = document.querySelectorAll("a");
+const nav = document.querySelector("nav");
+const ul = document.querySelector("ul");
+const menuBtn = document.querySelector("#menu");
+const templeContainer = document.querySelector(".temple-figures");
+
+menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("show");
+    ul.classList.toggle("show");
+    menuBtn.classList.toggle("show");
+});
+
+// temple card template
+const cardTemplate = (temple) => {
+    let loadingType = "lazy";
+
+    return `<div class="temple-card">
+            <h2>${temple.templeName}</h2>
+            <p><span>LOCATION: </span>${temple.location}</p>
+            <p><span>DEDICATED: </span>${temple.dedicated}</p>
+            <p><span>SIZE: </span>${temple.area.toLocaleString()} sq ft</p>
+            <img src="${temple.imageUrl}" alt="${
+        temple.templeName}" loading="${loadingType}" />
+            </div>`;
+};
+
+const filterTemples = (category) => {
+    if (category === "Old"){
+        return temples.filter((temple) => temple.dedicated < "1900");
+    }
+    else if (category === "New"){
+        return temples.filter((temple) => temple.dedicated > "2000");
+    }
+    else if (category === "Large"){
+        return temples.filter((temple) => temple.area > 90000);
+    }
+    else if (category === "Small"){
+        return temples.filter((temple) => temple.area < 10000);
+    }
+    else {
+        return temples //return all temples for "Home"
+    }
+};
+
+const displayTemples = (filteredTemples) => {
+  // map through and display temple card
+    templeContainer.innerHTML = filteredTemples.map(cardTemplate).join("");
+};
+
+// Display all temples by default
+displayTemples(temples);
+
+[...links].map((link) => {
+    // default header value
+    header.textContent = "Home";
+
+  // add an event listener to update header value
+    link.addEventListener("click", () => {
+        const category = link.textContent.trim();     
+        header.textContent = link.title;
+        const filteredTemples = filterTemples(category);
+        displayTemples(filteredTemples);
+        // close menu on small screens once link selected
+        if (window.innerWidth < 659) {
+            nav.classList.toggle("show");
+            ul.classList.toggle("show");
+            menuBtn.classList.toggle("show");
+        }
+    });
+});
+
