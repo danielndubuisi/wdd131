@@ -157,6 +157,7 @@ input[type="radio"] {
 
 .stars > label:hover {
 	color: #000;
+    cursor: pointer;
 }
 
 .stars > label::before {
@@ -170,7 +171,7 @@ input[type="radio"] {
 .ref{
     font-size: 0.7rem;
     color: var(--primary-dark-color);
-    margin: -2rem 1rem 1rem 0;
+    margin: 1rem 1rem 1rem 0;
 }
 
 /* submission page styles */
