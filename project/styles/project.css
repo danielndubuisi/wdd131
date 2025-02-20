@@ -314,6 +314,17 @@ button a:hover {
     margin: 1rem auto 2rem;
 }
 
+#featured .card img {
+    width: 12px;
+    height: auto;
+    object-fit: cover;
+}
+
+.featured-container {
+    text-align: center;
+    margin: 1rem 0;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -346,6 +357,48 @@ button a:hover {
     font-weight: 600;
     color: var(--accent-color);
 }
+
+.card-footer span {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.sort {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.search input {
+    width: 100%;
+    border-radius: 1rem;
+    padding: 0.7rem;
+    font-size: 1rem;
+}
+
+.country-sort {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.country-sort label {
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
 
 .try-btn {
     background-color: var(--secondary-color);
