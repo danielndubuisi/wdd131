@@ -141,6 +141,7 @@ const featured = document.getElementById("featured");
 const sortValue = document.getElementById("sort");
 const searchValue = document.getElementById("search");
 
+// toggle menu on small screens
 menuBtn.addEventListener("click", () => {
     nav.classList.toggle("show");
     ul.classList.toggle("show");
@@ -158,14 +159,18 @@ menuBtn.addEventListener("click", () => {
     });
 });
 
-// template for drop down options
+// template for country drop down options
 const optionTemplate = (country) => {
-    return `<option value=${country.toLowerCase()}>${country}</option>`;
+    return `<option value=${country
+        .replace(/\s+/g, "")
+        .toLowerCase()}>${country}</option>`;
 }
+
 
 // get all unique countries
 const countries = [...new Set(africanCuisines.flatMap((cuisine) => cuisine.countries))];
 countries.sort();
+
 
 // populate sort dropdown
 const displayOptions = (countries) => {
@@ -173,6 +178,7 @@ const displayOptions = (countries) => {
 }
 
 displayOptions(countries);
+
 
 // template for cuisine card
 const cardTemplate = (cuisine) => {
