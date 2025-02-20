@@ -8,6 +8,7 @@
     --primary-light-grey: #d8d7d7;
     --primary-dark-text-color: #000;
     --primary-light-color: #fff;
+    --hero-content-bg-color: #21212195;
 }
 
 * {
@@ -29,6 +30,10 @@ body {
 h1, h2, h3 {
     font-family: var(--secondary-font-family);
     color: var(--primary-color);
+}
+
+h2 {
+    text-align: center;
 }
 
 header {
@@ -149,6 +154,7 @@ nav ul.show {
 /* hero styles */
 .hero {
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .hero-img {
@@ -162,9 +168,59 @@ nav ul.show {
 
 .hero-img img {
     width: 100%;
-    height: auto;
+    height: 300px;
     object-fit: cover;
 }
+
+.hero-content{
+    background-color: var(--hero-content-bg-color);
+    padding: 1rem;
+    margin-top: -20px;
+}
+
+.hero-content h3 {
+    margin-top: 0.5rem;
+}
+
+.hero-content p {
+    margin: 1rem 0;
+    color: var(--primary-light-color);
+}
+
+.hero-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-btn button:first-child {
+    background-color: var(--primary-color);
+}
+
+.hero-btn button:first-child a {
+    color: var(--primary-light-color);
+}
+
+button a {
+    text-decoration: none;
+    color: var(--primary-dark-text-color);
+}
+
+button {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    border: 1px solid var(--accent-color);
+    color: var(--primary-dark-text-color);
+    background-color: var(--primary-light-color);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-light-color);
+    transition: all 0.3s ease-in-out;
+}
+
 
 /* form styles */
 form {
