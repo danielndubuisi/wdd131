@@ -138,6 +138,8 @@ const nav = document.querySelector("nav");
 const ul = document.querySelector("ul");
 const menuBtn = document.querySelector("#menu");
 const featured = document.getElementById("featured");
+const sortValue = document.getElementById("sort");
+const searchValue = document.getElementById("search");
 
 menuBtn.addEventListener("click", () => {
     nav.classList.toggle("show");
@@ -156,22 +158,74 @@ menuBtn.addEventListener("click", () => {
     });
 });
 
+// template for drop down options
+const optionTemplate = (country) => {
+    return `<option value=${country.toLowerCase()}>${country}</option>`;
+}
+
+// get all unique countries
+const countries = [...new Set(africanCuisines.flatMap((cuisine) => cuisine.countries))];
+countries.sort();
+
+// populate sort dropdown
+const displayOptions = (countries) => {
+    sortValue.innerHTML += countries.map((country) => optionTemplate(country)).join("");
+}
+
+displayOptions(countries);
+
+// template for cuisine card
 const cardTemplate = (cuisine) => {
+    let loadingType = "lazy";
+
     return `<div class="card">
                 <div class="card-content">
-                    <img src=${cuisine.image} alt=${cuisine.name} loading="lazy">
+                    <img src=${cuisine.image} alt=${cuisine.name} loading=${loadingType} />
                     <h2>${cuisine.name}</h2>
                 </div>
                 <div class="card-footer">
-                    <p>${cuisine.description}</p>
+                    <p><span>Description</span> - ${cuisine.description}</p>
                     <p><span>Ingredients</span> - ${cuisine.ingredients} </p>
-                    <p>Cook time - ${cuisine.cookTime}</p>
-                    <p>Difficulty - ${cuisine.difficulty}</p>
-                    <p>Countries - ${cuisine.countries.join(", ")}</p>
-                    <p>Preparation - ${cuisine.preparation}</p>
+                    <p><span>Cook time</span> - ${cuisine.cookTime}</p>
+                    <p><span>Difficulty</span> - ${cuisine.difficulty}</p>
+                    <p><span>Countries</span> - ${cuisine.countries.join(", ")}</p>
+                    <p><span>Preparation</span> - ${cuisine.preparation}</p>
                 </div>
             </div>
     `;
 }
 
-featured.innerHTML = africanCuisines.map((cuisine) => cardTemplate(cuisine)).join("");
+// display cuisines or filtered cuisines
+const displayCuisines = (filteredCuisines) => {
+    featured.innerHTML = filteredCuisines.map((cuisine) => cardTemplate(cuisine)).join("");
+}
+
+// search by cuisine name
+searchValue.addEventListener("input", (e) => {
+    const searchQuery = e.target.value.toLowerCase();
+    const filteredCuisines = africanCuisines.filter((cuisine) => {
+        return cuisine.name.toLowerCase().includes(searchQuery);
+    });
+
+    displayCuisines(filteredCuisines);
+});
+
+// sort by country
+sortValue.addEventListener("change", (e) => { 
+    const selectedValue = e.target.value;
+    let sortedCuisines = [];
+
+    // map to find match in countries array
+    africanCuisines.map((cuisine) => {
+        let countries = cuisine.countries.map((country) => country.toLowerCase());
+        
+        if (countries.includes(selectedValue)) {
+            sortedCuisines.push(cuisine);
+        }
+    });
+
+    displayCuisines(sortedCuisines);
+});
+
+// display all cuisines by default
+displayCuisines(africanCuisines);

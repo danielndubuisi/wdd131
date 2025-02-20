@@ -349,6 +349,18 @@ button a:hover {
     border-radius: 50%;
 }
 
+#featured .card-content {
+    justify-content: space-between;
+    margin-left: -40px;
+}
+
+#featured .card img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+
 .card-content p {
     text-align: start;
 }
@@ -356,6 +368,10 @@ button a:hover {
 .card-content span {
     font-weight: 600;
     color: var(--accent-color);
+}
+
+.card-footer {
+    text-align: start;
 }
 
 .card-footer span {

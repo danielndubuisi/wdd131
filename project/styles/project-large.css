@@ -108,10 +108,22 @@
     text-align: center;
     }
 
+    .card-footer {
+        text-align: start;
+    }
+
     #featured .card img {
         width: 60px;
         height: 60px;
         object-fit: cover;
+    }
+
+    #featured .card-content {
+        margin-left: 0;
+    }
+
+    .featured-container p {
+        margin: 1.3rem 0;
     }
 
     .sort {
@@ -121,6 +133,7 @@
         justify-content: space-between;
         gap: 1rem;
         margin: 0 auto;
+        width: 80%;
     }
 
     .country-sort {
