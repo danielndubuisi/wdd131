@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="styles/project-large.css">
     <script src="scripts/project.js" defer></script>
     <script src="../scripts/getdates.js" defer></script>
 </head>
@@ -17,7 +18,8 @@
     <header>
         <!-- logo -->
         <div class="logo">
-            <img src="" alt="website-logo">
+            <img src="images/project-logo.webp" alt="website-logo">
+            <span>African Recipes</span>
         </div>
         <!-- page navigation -->
         <nav>
@@ -27,7 +29,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="featured.html" class="nav-link">Cuisines</a></li>
                 <li><a href="feedback.html" class="nav-link">Feedback</a></li>
-                <button type="submit"><a href="signup.html" class="nav-link">Signup</a></button>
+                <li><a href="signup.html" class="nav-link">Signup</a></li>
             </ul>
         </nav>        
     </header>
@@ -80,29 +82,38 @@
 
     </main>
     <footer>
-        <div class="footer-logo">
-            <img src="" alt="footer logo" loading="lazy">
-        </div>
-        <div class="menus">
-            <div class="menu">
-                <h3>Menu1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde inventore!</p>
+        <div class="footer-left">
+            <div class="footer-logo">
+                <img src="images/project-logo.webp" alt="footer logo" loading="lazy">
             </div>
-            <div class="menu">
-                <h3>Menu2</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit voluptatesunt.</p>
+            <div class="menus">
+                <div class="menu">
+                    <h3>Foods</h3>
+                    <p>The delicacy that African cuisines bring made easy!</p>
+                </div>
+                <div class="menu">
+                    <h3>Blog</h3>
+                    <p>Interact and meet with chefs and enthusiasts sharing their experiences.</p>
+                </div>
+                <div class="menu">
+                    <h3>Travel</h3>
+                    <p>Go there and try out the best local dishes from Egypt to South Africa.</p>
+                </div>
             </div>
-            <div class="menu">
-                <h3>Menu3</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem culpa vitae quae.</p>
+            <div class="top">
+                <img src="images/facebook-logo.webp" alt="facebook" loading="lazy">
+                <img src="images/instagram-logo.webp" alt="instagram"  loading="lazy">
+                <img src="images/twitter.webp" alt="twitter" loading="lazy">
             </div>
         </div>
-        <div class="socials">
-            <img src="" alt="tiktok" loading="lazy">
-            <img src="" alt="instagram"  loading="lazy">
-            <img src="" alt="twitter" loading="lazy">
+        <div class="last">
+            <p>&copy;<span id="currentyear"></span> | Daniel Tochukwu Ndubuisi | Nigeria</p>
+            <div class="socials">
+                <img src="images/facebook-logo.webp" alt="facebook" loading="lazy">
+                <img src="images/instagram-logo.webp" alt="instagram"  loading="lazy">
+                <img src="images/twitter.webp" alt="twitter" loading="lazy">
+            </div>
         </div>
-        <p>&copy;<span id="currentyear"></span> | Daniel Tochukwu Ndubuisi | Nigeria</p>
     </footer>
 </body>
 </html>
