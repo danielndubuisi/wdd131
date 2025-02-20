@@ -193,17 +193,23 @@ nav ul.show {
     justify-content: space-between;
 }
 
-.hero-btn button:first-child {
+.hero-btn button:first-child, .orange-btn {
     background-color: var(--primary-color);
+    color: var(--primary-light-color);
 }
 
-.hero-btn button:first-child a {
+.hero-btn button:first-child:hover, .orange-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.hero-btn button:first-child a, .orange-btn a {
     color: var(--primary-light-color);
 }
 
 button a {
     text-decoration: none;
     color: var(--primary-dark-text-color);
+    font-weight: 600;
 }
 
 button {
@@ -216,10 +222,16 @@ button {
 }
 
 button:hover {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: var(--primary-light-color);
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
+
+button a:hover {
+    color: var(--primary-light-color);
+}
+
 
 /* feedback section styles */
 .feedback {
@@ -238,7 +250,6 @@ button:hover {
 .feedback-details {
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(3, 1fr);
-    gap: 1rem;
     margin-top: 2rem;
     grid-auto-flow: row;
     width: 80%;
@@ -279,6 +290,80 @@ button:hover {
     max-width: 200px;
     text-align: center;
     font-size: 0.7rem;
+}
+
+/* featured section styles */
+.featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.featured > p {
+    text-align: center;
+    margin: 0.8rem 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+    width: 80%;
+    margin: 1rem auto 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 1rem;
+}
+
+.card-content img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.card-content p {
+    text-align: start;
+}
+
+.card-content span {
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.try-btn {
+    background-color: var(--secondary-color);
+    border: none;
+}
+
+.try-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* newsletter section styles */
+.newsletter {
+    text-align: center;
+    margin: 0.8rem auto;
+}
+
+.newsletter p {
+    margin: 0.8rem 0;
 }
 
 /* form styles */
