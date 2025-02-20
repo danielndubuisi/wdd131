@@ -83,6 +83,10 @@ footer {
     text-align: left;
 }
 
+.menu h3 {
+    color: var(--accent-color);
+}
+
 /* Navigation styles */
 .nav-link{
     text-decoration: none;
@@ -195,14 +199,18 @@ nav ul.show {
 
 .hero-btn button:first-child, .orange-btn {
     background-color: var(--primary-color);
-    color: var(--primary-light-color);
 }
 
 .hero-btn button:first-child:hover, .orange-btn:hover {
     background-color: var(--accent-color);
+    color: var(--primary-light-color);
 }
 
 .hero-btn button:first-child a, .orange-btn a {
+    color: var(--primary-dark-text-color);
+}
+
+.hero-btn button:first-child a:hover, .orange-btn a:hover{
     color: var(--primary-light-color);
 }
 
@@ -223,7 +231,6 @@ button {
 
 button:hover {
     background-color: var(--accent-color);
-    color: var(--primary-light-color);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
 }
@@ -504,12 +511,13 @@ input[type="submit"] {
     border: none;
     border-radius: 0.4rem;
     background-color: var(--primary-color);
-    color: var(--primary-light-color);
+    color: var(--primary-dark-text-color);
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
     background-color: var(--accent-color);
+    color: var(--primary-light-color);
     transition: all 0.3s ease-in-out;
 }
 
