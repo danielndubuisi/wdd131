@@ -191,7 +191,6 @@ const cardTemplate = (cuisine) => {
     return `<div class="card">
     <div class="card-content">
     <img src=${cuisine.image} alt=${cuisine.name} loading=${loadingType} />
-    }
     <h2>${cuisine.name}</h2>
     </div>
     <div class="card-footer">
