@@ -174,64 +174,75 @@ countries.sort();
 
 // populate sort dropdown
 const displayOptions = (countries) => {
-    sortValue.innerHTML += countries.map((country) => optionTemplate(country)).join("");
+    if (sortValue) {
+        sortValue.innerHTML += countries.map((country) => optionTemplate(country)).join("");
+    }
 }
 
-displayOptions(countries);
+if (countries) {
+    displayOptions(countries);
+}
 
 
 // template for cuisine card
 const cardTemplate = (cuisine) => {
     let loadingType = "lazy";
-
+    
     return `<div class="card">
-                <div class="card-content">
-                    <img src=${cuisine.image} alt=${cuisine.name} loading=${loadingType} />
-                    <h2>${cuisine.name}</h2>
-                </div>
-                <div class="card-footer">
-                    <p><span>Description</span> - ${cuisine.description}</p>
-                    <p><span>Ingredients</span> - ${cuisine.ingredients} </p>
-                    <p><span>Cook time</span> - ${cuisine.cookTime}</p>
-                    <p><span>Difficulty</span> - ${cuisine.difficulty}</p>
-                    <p><span>Countries</span> - ${cuisine.countries.join(", ")}</p>
-                    <p><span>Preparation</span> - ${cuisine.preparation}</p>
-                </div>
-            </div>
+    <div class="card-content">
+    <img src=${cuisine.image} alt=${cuisine.name} loading=${loadingType} />
+    }
+    <h2>${cuisine.name}</h2>
+    </div>
+    <div class="card-footer">
+    <p><span>Description</span> - ${cuisine.description}</p>
+    <p><span>Ingredients</span> - ${cuisine.ingredients} </p>
+    <p><span>Cook time</span> - ${cuisine.cookTime}</p>
+    <p><span>Difficulty</span> - ${cuisine.difficulty}</p>
+    <p><span>Countries</span> - ${cuisine.countries.join(", ")}</p>
+    <p><span>Preparation</span> - ${cuisine.preparation}</p>
+    </div>
+    </div>
     `;
 }
 
 // display cuisines or filtered cuisines
 const displayCuisines = (filteredCuisines) => {
-    featured.innerHTML = filteredCuisines.map((cuisine) => cardTemplate(cuisine)).join("");
+    if (featured) {
+        featured.innerHTML = filteredCuisines.map((cuisine) => cardTemplate(cuisine)).join("");    
+    }
 }
-
-// search by cuisine name
-searchValue.addEventListener("input", (e) => {
-    const searchQuery = e.target.value.toLowerCase();
-    const filteredCuisines = africanCuisines.filter((cuisine) => {
-        return cuisine.name.toLowerCase().includes(searchQuery);
-    });
-
-    displayCuisines(filteredCuisines);
-});
-
-// sort by country
-sortValue.addEventListener("change", (e) => { 
-    const selectedValue = e.target.value;
-    let sortedCuisines = [];
-
-    // map to find match in countries array
-    africanCuisines.map((cuisine) => {
-        let countries = cuisine.countries.map((country) => country.toLowerCase());
-        
-        if (countries.includes(selectedValue)) {
-            sortedCuisines.push(cuisine);
-        }
-    });
-
-    displayCuisines(sortedCuisines);
-});
 
 // display all cuisines by default
 displayCuisines(africanCuisines);
+
+// search by cuisine name
+if (searchValue) {
+    searchValue.addEventListener("input", (e) => {
+        const searchQuery = e.target.value.toLowerCase();
+        const filteredCuisines = africanCuisines.filter((cuisine) => {
+            return cuisine.name.toLowerCase().includes(searchQuery);
+        });
+    
+        displayCuisines(filteredCuisines);
+    });
+}
+
+// sort by country
+if (sortValue) {
+    sortValue.addEventListener("change", (e) => { 
+        const selectedValue = e.target.value;
+        let sortedCuisines = [];
+    
+        // map to find match in countries array
+        africanCuisines.map((cuisine) => {
+            let countries = cuisine.countries.map((country) => country.toLowerCase());
+            
+            if (countries.includes(selectedValue)) {
+                sortedCuisines.push(cuisine);
+            }
+        });
+    
+        displayCuisines(sortedCuisines);
+    });
+}
