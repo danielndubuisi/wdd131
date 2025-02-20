@@ -221,6 +221,65 @@ button:hover {
     transition: all 0.3s ease-in-out;
 }
 
+/* feedback section styles */
+.feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback > p {
+    max-width: 400px;
+    text-align: center;
+    margin-top: 0.8rem;
+}
+
+.feedback-details {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    grid-auto-flow: row;
+    width: 80%;
+}
+
+.feedback-details > div:nth-child(2) {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.feedback-details > div:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.detail-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-text p {
+    margin: 0.5rem 0;
+    max-width: 200px;
+    text-align: center;
+    font-size: 0.7rem;
+}
 
 /* form styles */
 form {

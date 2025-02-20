@@ -59,6 +59,23 @@
         gap: 2rem;
     }
 
+    /* feedback section styles */
+    .feedback p {
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .feedback-details {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .details-text p {
+        text-align: start;
+    }
+
 
     /* form styles */
         form {
